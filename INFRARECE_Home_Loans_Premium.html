@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INFRARECE HOME LOANS - Premium</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f6f9}
+header{background:#0b3d91;color:white;text-align:center;padding:35px}
+.container{max-width:1100px;margin:auto;padding:20px}
+.card{background:white;padding:20px;margin:15px 0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+input,select,textarea{width:100%;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:5px}
+button{padding:12px 20px;background:#0b3d91;color:white;border:none;border-radius:5px}
+footer{background:#0b3d91;color:white;text-align:center;padding:20px}
+.result{font-weight:bold;margin-top:10px}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%;text-decoration:none}
+</style>
+<script>
+function calculateEMI(){
+ let p=parseFloat(document.getElementById('loan').value);
+ let r=parseFloat(document.getElementById('rate').value)/12/100;
+ let n=parseFloat(document.getElementById('years').value)*12;
+ let emi=(p*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+ document.getElementById('emiResult').innerHTML="Estimated EMI: ₹ "+emi.toFixed(2);
+}
+function checkEligibility(){
+ let income=parseFloat(document.getElementById('income').value);
+ let eligible=income*60;
+ document.getElementById('eligibility').innerHTML="Estimated Eligibility: ₹ "+eligible.toLocaleString();
+}
+</script>
+</head>
+<body>
+
+<header>
+<h1>INFRARECE HOME LOANS</h1>
+<p>Mohali, Punjab | +91 84374 60652</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>Apply for Home Loan</h2>
+<form>
+<input type="text" placeholder="Full Name">
+<input type="tel" placeholder="Mobile Number">
+<input type="number" placeholder="Loan Amount Required">
+<input type="text" placeholder="City">
+<select>
+<option>Salaried</option>
+<option>Self Employed</option>
+</select>
+<textarea placeholder="Additional Details"></textarea>
+<button type="submit">Submit Application</button>
+</form>
+</div>
+
+<div class="card">
+<h2>EMI Calculator</h2>
+<input id="loan" type="number" placeholder="Loan Amount">
+<input id="rate" type="number" placeholder="Interest Rate (%)">
+<input id="years" type="number" placeholder="Tenure (Years)">
+<button onclick="calculateEMI()">Calculate EMI</button>
+<div id="emiResult" class="result"></div>
+</div>
+
+<div class="card">
+<h2>Loan Eligibility Checker</h2>
+<input id="income" type="number" placeholder="Monthly Income">
+<button onclick="checkEligibility()">Check Eligibility</button>
+<div id="eligibility" class="result"></div>
+</div>
+
+<div class="card">
+<h2>Required Documents</h2>
+<ul>
+<li>Aadhaar Card</li>
+<li>PAN Card</li>
+<li>Income Proof</li>
+<li>Bank Statement</li>
+<li>Property Documents</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Application Tracking</h2>
+<input type="text" placeholder="Enter Application ID">
+<button>Track Status</button>
+</div>
+
+</div>
+
+<a class="whatsapp" href="https://wa.me/918437460652">WA</a>
+
+<footer>
+© 2026 INFRARECE HOME LOANS
+</footer>
+
+</body>
+</html>
